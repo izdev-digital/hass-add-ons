@@ -2,9 +2,9 @@ name: "E-Paper Dashboard"
 version: "0.0.4"
 slug: "e-paper-dashboard"
 description: "E-Paper Dashboard for Home Assistant"
-startup: "services"
+url: "https://github.com/izdev-digital/hass-add-ons"
 arch:
-  - "amd64"
+  - amd64
 image: "izdevdigital/e-paper-dashboard:0.0.4"
 
 ports:
