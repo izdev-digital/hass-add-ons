@@ -3,6 +3,8 @@ version: "0.0.4"
 slug: "e-paper-dashboard"
 description: "E-Paper Dashboard for Home Assistant"
 startup: "services"
+arch:
+  - "amd64"
 image: "izdevdigital/e-paper-dashboard:0.0.4"
 
 ports:
