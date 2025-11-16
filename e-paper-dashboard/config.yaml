@@ -8,20 +8,20 @@ arch:
   - amd64
 image: "izdevdigital/e-paper-dashboard:0.0.4"
 
-ports:
-  8128/tcp: 8128
+# ports:
+#   8128/tcp: 8128
 
-options:
-  client_url: ""
-  superuser_name: ""
-  superuser_password: ""
+# options:
+#   client_url: ""
+#   superuser_name: ""
+#   superuser_password: ""
 
-schema:
-  client_url: str
-  superuser_name: str
-  superuser_password: str
+# schema:
+#   client_url: str
+#   superuser_name: str
+#   superuser_password: str
 
-environment:
-  CLIENT_URL: "!env_var(client_url)"
-  SUPERUSER_USERNAME: "!env_var(superuser_name)"
-  SUPERUSER_PASSWORD: "!env_var(superuser_password)"
+# environment:
+#   CLIENT_URL: "!env_var(client_url)"
+#   SUPERUSER_USERNAME: "!env_var(superuser_name)"
+#   SUPERUSER_PASSWORD: "!env_var(superuser_password)"
