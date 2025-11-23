@@ -4,9 +4,9 @@ slug: "e-paper-dashboard"
 description: "E-Paper Dashboard for Home Assistant"
 url: "https://github.com/izdev-digital/hass-add-ons"
 arch:
-  - armhf
-  - arm64
   - amd64
+  - arm64
+  - arm/v7
 startup: services
 boot: auto
 
