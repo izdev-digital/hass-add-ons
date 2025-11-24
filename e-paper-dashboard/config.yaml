@@ -6,7 +6,6 @@ url: "https://github.com/izdev-digital/hass-add-ons"
 arch:
   - amd64
   - arm64
-  - arm/v7
 startup: services
 boot: auto
 
