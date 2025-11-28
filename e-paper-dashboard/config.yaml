@@ -10,7 +10,6 @@ arch:
 startup: services
 boot: auto
 
-image: "docker.io/izdevdigital/e-paper-dashboard:0.0.4"
 ports:
   8128/tcp: 8128
 
