@@ -10,7 +10,7 @@ arch:
 startup: services
 boot: auto
 
-image: "izdevdigital/e-paper-dashboard:{version}"
+image: "izdevdigital/e-paper-dashboard:0.0.4"
 ports:
   8128/tcp: 8128
 
