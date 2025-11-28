@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-FROM izdevdigital/e-paper-dashboard:0.0.4.1
+FROM zdevdigital/e-paper-dashboard:0.0.0
 
 # Copy data for add-on
 COPY run.sh /

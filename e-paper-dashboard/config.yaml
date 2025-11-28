@@ -6,9 +6,11 @@ url: "https://github.com/izdev-digital/hass-add-ons"
 arch:
   - amd64
   - arm64
+  - armv7
 startup: services
 boot: auto
 
+image: "zdevdigital/e-paper-dashboard:0.0.0"
 ports:
   8128/tcp: 8128
 
