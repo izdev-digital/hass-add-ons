@@ -17,7 +17,7 @@ USER root
 COPY --from=bashio /tmp/bashio/lib /usr/lib/bashio
 RUN ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
     && apt-get update \
-    && apt-get install -y --no-install-recommends su-exec \
+    && apt-get install -y --no-install-recommends gosu \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

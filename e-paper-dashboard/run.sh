@@ -9,7 +9,7 @@ bashio::log.info "Starting E-Paper Dashboard..."
 bashio::log.info "Client URL: ${CLIENT_URL}"
 
 # Start the application as app user with environment variables
-exec su-exec app env \
+exec gosu app env \
     CLIENT_URL="${CLIENT_URL}" \
     SUPERUSER_USERNAME="${SUPERUSER_USERNAME}" \
     SUPERUSER_PASSWORD="${SUPERUSER_PASSWORD}" \
