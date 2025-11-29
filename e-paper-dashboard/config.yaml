@@ -19,6 +19,12 @@ panel_icon: mdi:monitor-dashboard
 
 webui: "http://[HOST]:[PORT:8128]"
 
+# Temporary environment variables for debugging (remove after verification)
+environment:
+  CLIENT_URL: "http://example.local"
+  SUPERUSER_USERNAME: "testuser"
+  SUPERUSER_PASSWORD: "testpass"
+
 options:
   client_url: ""
   superuser_name: ""
