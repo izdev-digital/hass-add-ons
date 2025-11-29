@@ -10,7 +10,7 @@ RUN apt-get update \
     && tar zxf /tmp/bashio.tar.gz --strip 1 -C /tmp/bashio
 
 # Stage 2: Final image
-FROM izdevdigital/e-paper-dashboard:0.0.0
+FROM izdevdigital/e-paper-dashboard:0.0.5
 
 # Copy bashio from the builder stage and create symlink as root
 USER root
