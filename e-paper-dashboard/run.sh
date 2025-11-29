@@ -1,17 +1,23 @@
-#!/usr/bin/env bashio
+#!/bin/bash
+set -e
+
+source /usr/bin/bashio
 
 # Get config options
-export CLIENT_URL=$(bashio::config 'client_url')
-export SUPERUSER_USERNAME=$(bashio::config 'superuser_name')
-export SUPERUSER_PASSWORD=$(bashio::config 'superuser_password')
+CLIENT_URL=$(bashio::config 'client_url')
+SUPERUSER_USERNAME=$(bashio::config 'superuser_name')
+SUPERUSER_PASSWORD=$(bashio::config 'superuser_password')
 
-bashio::log.info "Starting E-Paper Dashboard..."
-bashio::log.info "Client URL: ${CLIENT_URL}"
-bashio::log.info "Superuser Name: ${SUPERUSER_USERNAME}"
+# Create environment file for app user
+ENV_FILE="/tmp/app.env"
+cat > "$ENV_FILE" << EOF
+export CLIENT_URL="${CLIENT_URL}"
+export SUPERUSER_USERNAME="${SUPERUSER_USERNAME}"
+export SUPERUSER_PASSWORD="${SUPERUSER_PASSWORD}"
+EOF
 
-# Test if variables are visible
-bashio::log.info "Testing variable visibility..."
-gosu app bash -c 'echo "CLIENT_URL inside app user: $CLIENT_URL"'
+chown app:app "$ENV_FILE"
+chmod 600 "$ENV_FILE"
 
-# Start the application as app user with explicit environment passing
-exec gosu app bash -c "CLIENT_URL='${CLIENT_URL}' SUPERUSER_USERNAME='${SUPERUSER_USERNAME}' SUPERUSER_PASSWORD='${SUPERUSER_PASSWORD}' exec dotnet /app/EPaperDashboard.dll"
+# Start the application as app user
+exec gosu app bash -c "source $ENV_FILE && exec dotnet /app/EPaperDashboard.dll"
