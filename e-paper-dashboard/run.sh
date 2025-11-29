@@ -8,16 +8,17 @@ CLIENT_URL=$(bashio::config 'client_url')
 SUPERUSER_USERNAME=$(bashio::config 'superuser_name')
 SUPERUSER_PASSWORD=$(bashio::config 'superuser_password')
 
-# Create environment file for app user
-ENV_FILE="/tmp/app.env"
-cat > "$ENV_FILE" << EOF
-export CLIENT_URL="${CLIENT_URL}"
-export SUPERUSER_USERNAME="${SUPERUSER_USERNAME}"
-export SUPERUSER_PASSWORD="${SUPERUSER_PASSWORD}"
-EOF
+# Create a wrapper script that sets environment and runs the app
+cat > /tmp/start-app.sh << 'WRAPPER_EOF'
+#!/bin/bash
+export CLIENT_URL="$1"
+export SUPERUSER_USERNAME="$2"
+export SUPERUSER_PASSWORD="$3"
+exec dotnet /app/EPaperDashboard.dll
+WRAPPER_EOF
 
-chown app:app "$ENV_FILE"
-chmod 600 "$ENV_FILE"
+chmod +x /tmp/start-app.sh
+chown app:app /tmp/start-app.sh
 
-# Start the application as app user
-exec gosu app bash -c "source $ENV_FILE && exec dotnet /app/EPaperDashboard.dll"
+# Execute wrapper as app user, passing values as arguments
+exec gosu app /tmp/start-app.sh "${CLIENT_URL}" "${SUPERUSER_USERNAME}" "${SUPERUSER_PASSWORD}"
