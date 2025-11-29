@@ -15,10 +15,11 @@ FROM izdevdigital/e-paper-dashboard:0.0.0
 # Copy bashio from the builder stage and create symlink as root
 USER root
 COPY --from=bashio /tmp/bashio/lib /usr/lib/bashio
-RUN ln -s /usr/lib/bashio/bashio /usr/bin/bashio
-
-# Switch back to app user
-USER app
+RUN ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends su-exec \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy data for add-on
 COPY --chmod=755 run.sh /
