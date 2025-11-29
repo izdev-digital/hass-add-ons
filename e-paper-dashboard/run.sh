@@ -1,12 +1,24 @@
 #!/bin/bash
 set -e
 
-source /usr/bin/bashio
+## Read configuration directly from Home Assistant options JSON to avoid bashio dependency
+OPTIONS_FILE="/data/options.json"
+if [ -f "$OPTIONS_FILE" ]; then
+  CLIENT_URL=$(jq -r '.client_url // empty' "$OPTIONS_FILE")
+  SUPERUSER_USERNAME=$(jq -r '.superuser_name // empty' "$OPTIONS_FILE")
+  SUPERUSER_PASSWORD=$(jq -r '.superuser_password // empty' "$OPTIONS_FILE")
+else
+  # Fallback to empty values
+  CLIENT_URL=""
+  SUPERUSER_USERNAME=""
+  SUPERUSER_PASSWORD=""
+fi
 
-# Get config options
-CLIENT_URL=$(bashio::config 'client_url')
-SUPERUSER_USERNAME=$(bashio::config 'superuser_name')
-SUPERUSER_PASSWORD=$(bashio::config 'superuser_password')
+# Validate configuration
+if [ -z "${CLIENT_URL}" ]; then
+    bashio::log.error "CLIENT_URL is not configured. Please set it in the add-on configuration."
+    exit 1
+fi
 
 # Create config directory if it doesn't exist
 mkdir -p /app/config
@@ -20,8 +32,9 @@ cat > /app/config/environment.json << EOF
 }
 EOF
 
-chown app:app /app/config/environment.json
-chmod 600 /app/config/environment.json
+chown -R app:app /app/config
+chmod 644 /app/config/environment.json
 
-# Start as app user
+# Start as app user with working directory set to /app
+cd /app
 exec gosu app dotnet /app/EPaperDashboard.dll
