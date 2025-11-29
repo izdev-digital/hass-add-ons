@@ -21,7 +21,7 @@ options:
   superuser_password: ""
 
 schema:
-  client_url: str
+  client_url: url
   superuser_name: str
   superuser_password: password
 
