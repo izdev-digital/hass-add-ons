@@ -12,9 +12,13 @@ RUN apt-get update \
 # Stage 2: Final image
 FROM izdevdigital/e-paper-dashboard:0.0.0
 
-# Copy bashio from the builder stage
+# Copy bashio from the builder stage and create symlink as root
+USER root
 COPY --from=bashio /tmp/bashio/lib /usr/lib/bashio
 RUN ln -s /usr/lib/bashio/bashio /usr/bin/bashio
+
+# Switch back to app user
+USER app
 
 # Copy data for add-on
 COPY --chmod=755 run.sh /
