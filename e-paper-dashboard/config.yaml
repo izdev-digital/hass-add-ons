@@ -23,14 +23,17 @@ environment:
   CLIENT_URL: "http://example.local"
   SUPERUSER_USERNAME: "testuser"
   SUPERUSER_PASSWORD: "testpass"
+  STATE_SIGNING_KEY: "your-secure-32-byte-minimum-signing-key-here-change-this"
 
 options:
   client_url: ""
   superuser_name: ""
   superuser_password: ""
+  state_signing_key: ""
 
 schema:
   client_url: url
   superuser_name: str
   superuser_password: password
+  state_signing_key: str
 

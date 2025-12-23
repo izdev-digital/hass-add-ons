@@ -7,11 +7,13 @@ if [ -f "$OPTIONS_FILE" ]; then
   CLIENT_URL=$(jq -r '.client_url // empty' "$OPTIONS_FILE")
   SUPERUSER_USERNAME=$(jq -r '.superuser_name // empty' "$OPTIONS_FILE")
   SUPERUSER_PASSWORD=$(jq -r '.superuser_password // empty' "$OPTIONS_FILE")
+  STATE_SIGNING_KEY=$(jq -r '.state_signing_key // empty' "$OPTIONS_FILE")
 else
   # Fallback to empty values
   CLIENT_URL=""
   SUPERUSER_USERNAME=""
   SUPERUSER_PASSWORD=""
+  STATE_SIGNING_KEY=""
 fi
 
 # Validate configuration
@@ -28,7 +30,8 @@ cat > /app/config/environment.json << EOF
 {
   "CLIENT_URL": "${CLIENT_URL}",
   "SUPERUSER_USERNAME": "${SUPERUSER_USERNAME}",
-  "SUPERUSER_PASSWORD": "${SUPERUSER_PASSWORD}"
+  "SUPERUSER_PASSWORD": "${SUPERUSER_PASSWORD}",
+  "STATE_SIGNING_KEY": "${STATE_SIGNING_KEY}"
 }
 EOF
 
