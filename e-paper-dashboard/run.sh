@@ -22,8 +22,14 @@ if [ -z "${CLIENT_URL}" ]; then
     exit 1
 fi
 
-# Create config directory if it doesn't exist
-mkdir -p /app/config
+# Create directories for persistent volumes if they don't exist
+mkdir -p /data/dataprotection
+mkdir -p /data/appconfig
+
+# Create symlinks to persistent volumes
+mkdir -p /home/app/.aspnet
+ln -sf /data/dataprotection /home/app/.aspnet/DataProtection-Keys
+ln -sf /data/appconfig /app/config
 
 # Write configuration to environment.json
 cat > /app/config/environment.json << EOF
@@ -35,7 +41,8 @@ cat > /app/config/environment.json << EOF
 }
 EOF
 
-chown -R app:app /app/config
+chown -R app:app /data/dataprotection
+chown -R app:app /data/appconfig
 chmod 644 /app/config/environment.json
 
 # Start as app user with working directory set to /app

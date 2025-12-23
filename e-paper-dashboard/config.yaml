@@ -6,11 +6,14 @@ url: "https://github.com/izdev-digital/hass-add-ons"
 arch:
   - amd64
   - aarch64
-startup: services
+startup: application
 boot: auto
-
 ports:
   8128/tcp: 8128
+
+volumes:
+  dataprotection:
+  appconfig:
 
 ingress: true
 ingress_port: 8128
