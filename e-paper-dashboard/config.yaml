@@ -17,7 +17,6 @@ volumes:
 
 ingress: true
 ingress_port: 8128
-ingress_entry: /
 panel_icon: mdi:monitor-dashboard
 
 options:
