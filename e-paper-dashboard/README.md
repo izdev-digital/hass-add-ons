@@ -9,7 +9,6 @@ A dashboard interface optimized for e-paper displays, providing a clean, low-pow
 - Optimized for e-paper display refresh rates
 - Low power consumption
 - Clean, readable interface
-- Ingress support for seamless integration
 - Auto-start on system boot
 
 ## Installation
@@ -63,7 +62,6 @@ state_signing_key: "your-random-signing-key"
 ## Usage
 
 1. After starting the add-on, access it through:
-   - Home Assistant Ingress (Sidebar → E-Paper Dashboard)
    - Direct URL: `http://homeassistant.local:8128`
 
 2. Log in with your configured superuser credentials

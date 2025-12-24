@@ -15,8 +15,6 @@ volumes:
   dataprotection:
   appconfig:
 
-ingress: true
-ingress_port: 8128
 panel_icon: mdi:monitor-dashboard
 
 options:
