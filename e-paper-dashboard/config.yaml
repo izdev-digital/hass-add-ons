@@ -20,8 +20,6 @@ ingress_port: 8128
 ingress_entry: /
 panel_icon: mdi:monitor-dashboard
 
-webui: "[PROTO:ssl]://[HOST]/[PORT:8128]"
-
 options:
   client_url: ""
   superuser_name: ""
