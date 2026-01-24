@@ -1,7 +1,7 @@
-name: "E-Paper Dashboard"
+name: "izBoard"
 version: "0.0.6"
-slug: "e-paper-dashboard"
-description: "E-Paper Dashboard for Home Assistant"
+slug: "izboard"
+description: "izBoard E-Paper Dashboard for Home Assistant"
 url: "https://github.com/izdev-digital/hass-add-ons"
 arch:
   - amd64

@@ -1,8 +1,8 @@
-# E-Paper Dashboard Add-on
+# izBoard Add-on
 
-A dashboard interface optimized for e-paper displays, providing a clean, low-power way to view your Home Assistant data. Perfect for wall-mounted displays or remote monitoring stations.
+A dashboard interface optimized for izBoard displays, providing a clean, low-power way to view your Home Assistant data. Perfect for wall-mounted displays or remote monitoring stations.
 
-**Project Repository**: [e-paper-dashboard](https://github.com/izdev-digital/e-paper-dashboard)
+**Project Repository**: [izBoard](https://github.com/izdev-digital/e-paper-dashboard)
 
 ## Features
 
@@ -18,7 +18,7 @@ A dashboard interface optimized for e-paper displays, providing a clean, low-pow
    - Add the repository URL: `https://github.com/izdev-digital/hass-add-ons`
    - Click "Add"
 
-2. Find "E-Paper Dashboard" in the Add-on Store
+2. Find "izBoard" in the Add-on Store
 
 3. Click "Install"
 
@@ -33,7 +33,7 @@ The add-on requires the following configuration options:
 ### Required Settings
 
 **client_url** (string)
-- The URL of your e-paper client device
+- The URL of your izBoard client device
 - Example: `http://192.168.1.100` or `http://epaper.local`
 
 **superuser_name** (string)
@@ -68,7 +68,7 @@ state_signing_key: "your-random-signing-key"
 
 3. Configure your dashboard layout and entities
 
-4. Connect your e-paper display client to the configured URL
+4. Connect your izBoard client to the configured URL
 
 ## Support
 

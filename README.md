@@ -4,9 +4,9 @@ This repository contains custom Home Assistant add-ons.
 
 ## Add-ons
 
-### E-Paper Dashboard
+### izBoard
 
-A dashboard interface designed for e-paper displays, providing a clean and energy-efficient way to visualize your Home Assistant data.
+A dashboard interface (izBoard) providing a clean and energy-efficient way to visualize your Home Assistant data.
 
 - **Version**: 0.0.6
 - **Architecture**: amd64, aarch64
