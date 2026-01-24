@@ -1,5 +1,5 @@
 name: "E-Paper Dashboard"
-version: "0.0.5"
+version: "0.0.6"
 slug: "e-paper-dashboard"
 description: "E-Paper Dashboard for Home Assistant"
 url: "https://github.com/izdev-digital/hass-add-ons"

@@ -8,7 +8,7 @@ RUN apt-get update \
         "https://github.com/hassio-addons/bashio/archive/v0.16.2.tar.gz" \
     && tar zxf /tmp/bashio.tar.gz --strip 1 -C /tmp/bashio
 
-FROM izdevdigital/e-paper-dashboard:0.0.5
+FROM izdevdigital/e-paper-dashboard:0.0.6
 
 USER root
 COPY --from=bashio /tmp/bashio/lib /usr/lib/bashio
