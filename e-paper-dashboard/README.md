@@ -32,20 +32,20 @@ The add-on requires the following configuration options:
 
 ### Required Settings
 
-**client_url** (string)
+**CLIENT_URL** (string)
 - The URL of your izBoard client device
 - Example: `http://192.168.1.100` or `http://epaper.local`
 
-**superuser_name** (string)
+**SUPERUSER_USERNAME** (string)
 - Username for administrative access to the dashboard
 - Example: `admin`
 
-**superuser_password** (password)
+**SUPERUSER_PASSWORD** (password)
 - Password for the superuser account
 - Use a strong, unique password
 - **Important**: This password is used for initial setup only. It is strongly recommended to change it through the application after first login for security purposes.
 
-**state_signing_key** (password)
+**STATE_SIGNING_KEY** (password)
 - Cryptographic key for signing state data
 - Generate a random secure key (recommended: 32+ characters)
 - Example: Use a password generator or `openssl rand -hex 32`
@@ -53,16 +53,16 @@ The add-on requires the following configuration options:
 ### Example Configuration
 
 ```yaml
-client_url: "http://192.168.1.100"
-superuser_name: "admin"
-superuser_password: "your-secure-password"
-state_signing_key: "your-random-signing-key"
+CLIENT_URL: "http://192.168.1.100"
+SUPERUSER_USERNAME: "admin"
+SUPERUSER_PASSWORD: "your-secure-password"
+STATE_SIGNING_KEY: "your-random-signing-key"
 ```
 
 ## Usage
 
 1. After starting the add-on, access it through:
-   - Direct URL: `http://homeassistant.local:8128`
+   - Home Assistant sidebar (Ingress)
 
 2. Log in with your configured superuser credentials
 

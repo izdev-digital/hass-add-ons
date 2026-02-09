@@ -3,18 +3,10 @@ set -e
 
 ## Read configuration directly from Home Assistant options JSON to avoid bashio dependency
 OPTIONS_FILE="/data/options.json"
-if [ -f "$OPTIONS_FILE" ]; then
-  CLIENT_URL=$(jq -r '.client_url // empty' "$OPTIONS_FILE")
-  SUPERUSER_USERNAME=$(jq -r '.superuser_name // empty' "$OPTIONS_FILE")
-  SUPERUSER_PASSWORD=$(jq -r '.superuser_password // empty' "$OPTIONS_FILE")
-  STATE_SIGNING_KEY=$(jq -r '.state_signing_key // empty' "$OPTIONS_FILE")
-else
-  # Fallback to empty values
-  CLIENT_URL=""
-  SUPERUSER_USERNAME=""
-  SUPERUSER_PASSWORD=""
-  STATE_SIGNING_KEY=""
-fi
+CLIENT_URL=$(jq -r '.CLIENT_URL // empty' "$OPTIONS_FILE")
+SUPERUSER_USERNAME=$(jq -r '.SUPERUSER_USERNAME // empty' "$OPTIONS_FILE")
+SUPERUSER_PASSWORD=$(jq -r '.SUPERUSER_PASSWORD // empty' "$OPTIONS_FILE")
+STATE_SIGNING_KEY=$(jq -r '.STATE_SIGNING_KEY // empty' "$OPTIONS_FILE")
 
 # Validate configuration
 if [ -z "${CLIENT_URL}" ]; then
@@ -24,26 +16,12 @@ fi
 
 # Create directories for persistent volumes if they don't exist
 mkdir -p /data/dataprotection
-mkdir -p /data/appconfig
 
 # Create symlinks to persistent volumes
 mkdir -p /home/app/.aspnet
 ln -sf /data/dataprotection /home/app/.aspnet/DataProtection-Keys
-ln -sf /data/appconfig /app/config
-
-# Write configuration to environment.json
-cat > /app/config/environment.json << EOF
-{
-  "CLIENT_URL": "${CLIENT_URL}",
-  "SUPERUSER_USERNAME": "${SUPERUSER_USERNAME}",
-  "SUPERUSER_PASSWORD": "${SUPERUSER_PASSWORD}",
-  "STATE_SIGNING_KEY": "${STATE_SIGNING_KEY}"
-}
-EOF
 
 chown -R app:app /data/dataprotection
-chown -R app:app /data/appconfig
-chmod 644 /app/config/environment.json
 
 # Start as app user with working directory set to /app
 cd /app

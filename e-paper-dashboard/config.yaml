@@ -1,5 +1,5 @@
 name: "izBoard"
-version: "0.0.6"
+version: "0.0.6.1"
 slug: "izboard"
 description: "izBoard E-Paper Dashboard for Home Assistant"
 url: "https://github.com/izdev-digital/hass-add-ons"
@@ -8,24 +8,25 @@ arch:
   - aarch64
 startup: application
 boot: auto
+ingress: true
+ingress_port: 8128
 ports:
   8128/tcp: 8128
 
 volumes:
   dataprotection:
-  appconfig:
 
 panel_icon: mdi:monitor-dashboard
 
 options:
-  client_url: ""
-  superuser_name: ""
-  superuser_password: ""
-  state_signing_key: ""
+  CLIENT_URL: ""
+  SUPERUSER_USERNAME: ""
+  SUPERUSER_PASSWORD: ""
+  STATE_SIGNING_KEY: ""
 
 schema:
-  client_url: url
-  superuser_name: str
-  superuser_password: password
-  state_signing_key: password
+  CLIENT_URL: url
+  SUPERUSER_USERNAME: str
+  SUPERUSER_PASSWORD: password
+  STATE_SIGNING_KEY: password
 
