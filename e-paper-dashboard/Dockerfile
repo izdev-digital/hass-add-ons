@@ -31,5 +31,5 @@ LABEL \
 # Expose port for ingress (must match config.json ingress_port)
 EXPOSE 8128
 
-# Keep the same entrypoint as base image
-# ENTRYPOINT is inherited from base image
+# Explicitly set CMD to run .NET app directly, bypassing any s6-overlay
+CMD ["dotnet", "/app/EPaperDashboard.dll"]
