@@ -31,5 +31,7 @@ LABEL \
 # Expose port for ingress (must match config.json ingress_port)
 EXPOSE 8128
 
-# Explicitly set CMD to run .NET app directly, bypassing any s6-overlay
+# Clear any inherited ENTRYPOINT and set CMD directly
+# This prevents s6-overlay from trying to run
+ENTRYPOINT []
 CMD ["dotnet", "/app/EPaperDashboard.dll"]
