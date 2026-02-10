@@ -3,7 +3,6 @@ version: "0.0.6.2"
 slug: "izboard"
 description: "izBoard E-Paper Dashboard for Home Assistant"
 url: "https://github.com/izdev-digital/hass-add-ons"
-image: "izdevdigital/e-paper-dashboard:latest"
 arch:
   - amd64
   - aarch64
@@ -11,4 +10,10 @@ startup: application
 boot: auto
 ingress: true
 ingress_port: 8128
+ingress_entry: /
 panel_icon: mdi:monitor-dashboard
+panel_title: izBoard
+map:
+  - data:rw
+options: {}
+schema: {}
