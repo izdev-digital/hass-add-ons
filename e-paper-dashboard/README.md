@@ -13,5 +13,8 @@ For issues, feature requests, or questions:
 
 ## Supported Architectures
 
+Currently supported architectures:
 - `amd64`
 - `arm64`
+
+**Note**: This add-on uses Playwright and Chromium to render dashboards, which requires sufficient RAM and CPU resources. It may not run reliably on low-powered devices with limited resources.
