@@ -1,5 +1,5 @@
 name: "izBoard"
-version: "0.0.6.4"
+version: "0.0.6.5"
 slug: "izboard"
 description: "izBoard E-Paper Dashboard for Home Assistant"
 url: "https://github.com/izdev-digital/hass-add-ons"
