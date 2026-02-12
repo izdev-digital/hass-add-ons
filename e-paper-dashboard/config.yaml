@@ -1,5 +1,5 @@
 name: "izBoard"
-version: "0.0.6.6"
+version: "0.1.0.0-preview"
 slug: "izboard"
 description: "izBoard E-Paper Dashboard for Home Assistant"
 url: "https://github.com/izdev-digital/hass-add-ons"
@@ -16,6 +16,7 @@ panel_title: izBoard
 map:
   - data:rw
 tmpfs: true
-apparmor: false
+apparmor: true
+homeassistant_api: true
 options: {}
 schema: {}
