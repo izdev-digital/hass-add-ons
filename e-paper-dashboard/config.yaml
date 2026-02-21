@@ -1,5 +1,5 @@
 name: "izBoard"
-version: "0.1.0.1-preview"
+version: "0.1.0.2-preview"
 slug: "izboard"
 description: "izBoard E-Paper Dashboard for Home Assistant"
 url: "https://github.com/izdev-digital/hass-add-ons"
@@ -18,7 +18,9 @@ map:
 tmpfs: true
 apparmor: true
 homeassistant_api: true
-options:
-  APP_MODE: "addon"
-schema:
-  APP_MODE: list(addon|host)
+ports:
+  8129/tcp: 8129
+ports_description:
+  8129/tcp: "Device communication (pairing, rendering, configuration)"
+environment:
+  APP_MODE: "Addon"
