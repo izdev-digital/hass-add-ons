@@ -30,6 +30,8 @@ LABEL \
 
 # Expose port for ingress (must match config.json ingress_port)
 EXPOSE 8128
+# Expose port for device communication
+EXPOSE 8129
 
 # Clear any inherited ENTRYPOINT and set CMD directly
 # This prevents s6-overlay from trying to run
