@@ -1,3 +1,3 @@
 build_from:
-  amd64: "izdevdigital/e-paper-dashboard:latest"
-  aarch64: "izdevdigital/e-paper-dashboard:latest"
+  amd64: &image "izdevdigital/e-paper-dashboard:0.2.7"
+  aarch64: *image

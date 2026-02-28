@@ -1,7 +1,7 @@
 # Home Assistant Addon Dockerfile
 # This wraps the base izBoard image and adapts it for HA addon usage
 
-ARG BUILD_FROM=izdevdigital/e-paper-dashboard:latest
+ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
 # Define build arguments after FROM
