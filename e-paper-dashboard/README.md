@@ -4,6 +4,16 @@
 
 **Project Repository**: [izBoard](https://github.com/izdev-digital/e-paper-dashboard)
 
+## Configuration
+
+Set `CLIENT_URL` to the LAN URL that your E-Paper displays can reach. The default is
+`http://homeassistant.local:8129`. Change the host or port if your network does not resolve
+`homeassistant.local`, the add-on port is remapped, or the displays use a separate VLAN.
+
+Do not use the Home Assistant ingress or cloud URL: those routes require a browser session and
+are not reachable by the displays. Allow the display network to reach this URL through your
+firewall.
+
 ## Support
 
 For issues, feature requests, or questions:
