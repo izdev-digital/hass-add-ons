@@ -1,5 +1,5 @@
 name: "izBoard"
-version: "0.4.0"
+version: "0.4.1"
 slug: "izboard"
 description: "izBoard E-Paper Dashboard for Home Assistant"
 url: "https://github.com/izdev-digital/hass-add-ons"
@@ -29,3 +29,6 @@ schema:
 environment:
   APP_MODE: "Addon"
   ASPNETCORE_URLS: "http://0.0.0.0:8128;http://0.0.0.0:8129"
+
+breaking_versions:
+  - "0.4.0"
